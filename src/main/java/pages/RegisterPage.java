@@ -45,6 +45,23 @@ public class RegisterPage {
     @FindBy(xpath = "//input[@placeholder='Person Name']")
     WebElement personName;
 
+    @FindBy(xpath = "//span[.='Name: ']/..")
+    WebElement name;
+
+    @FindBy(xpath = "//span[.='Address: ']/..")
+    WebElement patientAddress;
+
+    public String getName(){
+        String name=this.name.getText();
+        return name.substring(name.indexOf(":")+1).trim();
+    }
+
+    public String getAddress(){
+        String address=this.patientAddress.getText();
+        return address.substring(address.indexOf(":")+1).trim();
+    }
+
+
     public void registerPatient(String givenName, String familyName, String gender, String bDay, String bMonth,
                                 String bYear, String address, String phoneNumber, String relationshipType, String personName ){
         this.givenName.sendKeys(givenName);
