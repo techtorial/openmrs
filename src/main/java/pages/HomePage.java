@@ -32,6 +32,14 @@ public class HomePage {
         return appNames;
     }
 
+    public void clickApps(String appName){
+        for(WebElement app: apps){
+            if(app.getText().trim().equals(appName)){
+                app.click();
+                break;
+            }
+        }
+    }
 
 
 }
